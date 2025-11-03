@@ -39,7 +39,9 @@ namespace KeepScreenOn
         {
             btnStart.Text = "Executing...";
             btnStart.Enabled = btnExit.Enabled = false;
+            this.WindowState = FormWindowState.Minimized;
             await Task.Run(() => RunMouseMover());
+            this.WindowState = FormWindowState.Normal;
             btnStart.Text = "Start";
             btnStart.Enabled = btnExit.Enabled = true;
         }
